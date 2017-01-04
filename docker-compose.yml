@@ -1,0 +1,28 @@
+version: '2'
+services:
+  app:
+    build: .
+    command: python /usr/src/app/manage.py runserver 0.0.0.0:8100
+    ports:
+      - "8600:8100"
+    environment:
+      - STAGE=dev
+    volumes:
+      - .:/usr/src/app
+      - ./static:/var/www/html
+      - ./config:/etc/local/caldav2ical/conf
+      - ./var:/var/local/caldav2ical
+    links:
+      - postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:9
+    environment:
+      - POSTGRES_DB=caldav2ical
+      - POSTGRES_USER=caldav2ical
+      - POSTGRES_PASSWORD=caldav2ical
+      - PGDATA=/var/local/caldav2ical/pgdata
+    volumes:
+      - ./var:/var/local/caldav2ical

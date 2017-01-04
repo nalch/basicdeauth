@@ -1,0 +1,42 @@
+version: '2'
+services:
+  app:
+    image: nalch/caldav2ical:v0.1
+    environment:
+      - STAGE=p
+    volumes:
+      - nginx_html:/var/www/html
+      - caldav2ical_conf_path:/etc/local/caldav2ical/conf
+      - caldav2ical_var_path:/var/local/caldav2ical
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    networks:
+      default: {}
+      nginx-net: {}
+
+  postgres:
+    image: postgres:9
+    environment:
+      - POSTGRES_DB=caldav2ical
+      - POSTGRES_USER=caldav2ical
+      - POSTGRES_PASSWORD=caldav2ical
+      - PGDATA=/var/local/caldav2ical/pgdata
+    volumes:
+      - caldav2ical_var_path:/var/local/caldav2ical
+
+volumes:
+  caldav2ical_app_path:
+    external: true
+  caldav2ical_var_path:
+    external: true
+  nginx_html:
+    external: true
+  caldav2ical_conf_html:
+    external: true
+
+networks:
+  nginx-net:
+    external:
+      name: nginx-net
