@@ -1,7 +1,7 @@
 version: '2'
 services:
   app:
-    image: nalch/caldav2ical:v0.1
+    image: nalch/caldav2ical:latest
     environment:
       - STAGE=p
     volumes:
