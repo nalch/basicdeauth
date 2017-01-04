@@ -8,4 +8,4 @@ from nalch_caldav2ical.models import CalendarEntry
 @pytest.mark.django_db
 def test_save():
     calendar_entry = mommy.make(CalendarEntry)
-    assert calendar_entry.name == calendar_entry.caldav_url
+    assert str(calendar_entry) == calendar_entry.name
