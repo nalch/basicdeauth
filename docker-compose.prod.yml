@@ -33,7 +33,7 @@ volumes:
     external: true
   nginx_html:
     external: true
-  caldav2ical_conf_html:
+  caldav2ical_conf_path:
     external: true
 
 networks:
