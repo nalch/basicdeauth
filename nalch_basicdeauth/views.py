@@ -24,7 +24,7 @@ def fetch(request, url):
     :rtype: HttpResponse
     """
     urlentry = get_object_or_404(UrlEntry, name=url)
-    
+
     passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
     # this creates a password manager
     passman.add_password(None, urlentry.url, urlentry.username, urlentry.password)
