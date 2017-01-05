@@ -7,6 +7,7 @@ from .models import (
 
 class CalendarEntryForm(ModelForm):
     class Meta:
+        exclude = ()
         model = CalendarEntry
         widgets = {
             'password': PasswordInput(),

@@ -13,8 +13,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CalendarEntry',
             fields=[
-                ('caldav_url', models.URLField(serialize=False, primary_key=True)),
-                ('name', models.TextField(default=b'', null=True, blank=True)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=255)),
+                ('caldav_url', models.URLField()),
+                ('username', models.CharField(max_length=1024, default='', blank=True)),
+                ('password', models.CharField(max_length=1024, default='', blank=True)),
+                ('publish', models.BooleanField(default=False, help_text=b'publish the caldav calendar for users without credentials?')),
             ],
             options={
             },
