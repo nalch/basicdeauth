@@ -1,7 +1,7 @@
 version: '2'
 services:
   app:
-    image: nalch/caldav2ical:latest
+    image: nalch/caldav2ical:0.6
     environment:
       - STAGE=p
     volumes:
@@ -15,6 +15,11 @@ services:
     networks:
       default: {}
       nginx-net: {}
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: 3
 
   postgres:
     image: postgres:9
@@ -25,6 +30,11 @@ services:
       - PGDATA=/var/local/caldav2ical/pgdata
     volumes:
       - caldav2ical_var_path:/var/local/caldav2ical
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: 3
 
 volumes:
   caldav2ical_app_path:
