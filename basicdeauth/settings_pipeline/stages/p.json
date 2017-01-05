@@ -1,0 +1,16 @@
+{
+    "ALLOWED_HOSTS": ["*"],
+    "DEBUG": false,
+    "TEMPLATE_DEBUG": false,
+    "STATIC_ROOT": "/var/www/html",
+    "MEDIA_ROOT": "/var/www/html/media",
+    "DATABASES": {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "basicdeauth",
+            "USER": "basicdeauth",
+            "PASSWORD": "basicdeauth",
+            "HOST": "postgres"
+        }
+    }
+}

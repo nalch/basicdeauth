@@ -1,0 +1,19 @@
+Add your own settings to this pipeline to enable additional configuration settings.
+It's no magic, the json dicts just get merged in the files' order and are finally used in the main settings file.
+You can use the following settings:
+
+{
+    "ALLOWED_HOSTS": [],
+    "SECRET_KEY": "",
+    "DEBUG": true,
+    "TEMPLATE_DEBUG": true,
+    "STATIC_ROOT": "",
+    "MEDIA_ROOT": "",
+    "LOCALE_PATH": "",
+    "DATABASES": {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": ""
+        }
+    }
+}

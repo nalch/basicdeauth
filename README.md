@@ -1,3 +1,3 @@
-![Build status](https://travis-ci.org/nalch/caldav2ical.svg?branch=master)
+![Build status](https://travis-ci.org/nalch/basicdeauth.svg?branch=master)
 
-Django application that serves ical calendars from caldav sources
+Django application that proxies resources behind Basic Auth with stored credentials

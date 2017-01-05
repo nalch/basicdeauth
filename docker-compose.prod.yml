@@ -1,13 +1,13 @@
 version: '2'
 services:
   app:
-    image: nalch/caldav2ical:0.6
+    image: nalch/basicdeauth:0.6
     environment:
       - STAGE=p
     volumes:
       - nginx_html:/var/www/html
-      - caldav2ical_conf_path:/etc/local/caldav2ical/conf
-      - caldav2ical_var_path:/var/local/caldav2ical
+      - basicdeauth_conf_path:/etc/local/basicdeauth/conf
+      - basicdeauth_var_path:/var/local/basicdeauth
     links:
       - postgres
     depends_on:
@@ -24,12 +24,12 @@ services:
   postgres:
     image: postgres:9
     environment:
-      - POSTGRES_DB=caldav2ical
-      - POSTGRES_USER=caldav2ical
-      - POSTGRES_PASSWORD=caldav2ical
-      - PGDATA=/var/local/caldav2ical/pgdata
+      - POSTGRES_DB=basicdeauth
+      - POSTGRES_USER=basicdeauth
+      - POSTGRES_PASSWORD=basicdeauth
+      - PGDATA=/var/local/basicdeauth/pgdata
     volumes:
-      - caldav2ical_var_path:/var/local/caldav2ical
+      - basicdeauth_var_path:/var/local/basicdeauth
     logging:
       driver: json-file
       options:
@@ -37,13 +37,13 @@ services:
         max-file: 3
 
 volumes:
-  caldav2ical_app_path:
+  basicdeauth_app_path:
     external: true
-  caldav2ical_var_path:
+  basicdeauth_var_path:
     external: true
   nginx_html:
     external: true
-  caldav2ical_conf_path:
+  basicdeauth_conf_path:
     external: true
 
 networks:

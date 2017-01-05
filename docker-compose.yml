@@ -10,8 +10,8 @@ services:
     volumes:
       - .:/usr/src/app
       - ./static:/var/www/html
-      - ./config:/etc/local/caldav2ical/conf
-      - ./var:/var/local/caldav2ical
+      - ./config:/etc/local/basicdeauth/conf
+      - ./var:/var/local/basicdeauth
     links:
       - postgres
     depends_on:
@@ -20,9 +20,9 @@ services:
   postgres:
     image: postgres:9
     environment:
-      - POSTGRES_DB=caldav2ical
-      - POSTGRES_USER=caldav2ical
-      - POSTGRES_PASSWORD=caldav2ical
-      - PGDATA=/var/local/caldav2ical/pgdata
+      - POSTGRES_DB=basicdeauth
+      - POSTGRES_USER=basicdeauth
+      - POSTGRES_PASSWORD=basicdeauth
+      - PGDATA=/var/local/basicdeauth/pgdata
     volumes:
-      - ./var:/var/local/caldav2ical
+      - ./var:/var/local/basicdeauth
