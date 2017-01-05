@@ -1,7 +1,7 @@
 version: '2'
 services:
   app:
-    image: nalch/basicdeauth:0.6
+    image: nalch/basicdeauth:0.7
     environment:
       - STAGE=p
     volumes:
